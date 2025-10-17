@@ -62,7 +62,7 @@ EngoThemes = {
         Darkness = Color3.fromRGB(0, 0, 0),
     },
 }
-local theme = EngoThemes.Crimson
+local theme = EngoThemes.Engo
 
 -- Functions
 local old_err = error
@@ -201,6 +201,22 @@ function library:CreateMain(title, description, keycode)
     Topbar.BackgroundColor3 = Color3.fromRGB(1, 1, 1)
     Topbar.BackgroundTransparency = 1.000
     Topbar.Size = UDim2.new(0, 550, 0, 53)
+
+        -- Tombol Hide/Unhide di pojok kanan atas
+    local HideIcon = Instance.new("ImageButton")
+    HideIcon.Parent = Topbar
+    HideIcon.AnchorPoint = Vector2.new(1, 0)
+    HideIcon.Position = UDim2.new(0.98, 0, 0.15, 0)
+    HideIcon.Size = UDim2.new(0, 25, 0, 25)
+    HideIcon.BackgroundTransparency = 1
+    HideIcon.Image = "rbxassetid://6031094678" -- icon hide
+    HideIcon.ImageColor3 = theme.TextColor
+
+    HideIcon.MouseButton1Click:Connect(function()
+        Main.Visible = not Main.Visible
+    end)
+
+
 
     Info.Name = "Info"
     Info.Parent = Topbar
@@ -1526,4 +1542,3 @@ function library:CreateMain(title, description, keycode)
 end
 
 return library
-
