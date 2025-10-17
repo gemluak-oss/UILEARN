@@ -168,6 +168,23 @@ function library:CreateMain(title, description, keycode)
 
     Main.Name = "Main"
     Main.Parent = EngoUI
+    -- Tombol unhide yang selalu terlihat
+    local UnhideButton = Instance.new("ImageButton")
+    UnhideButton.Name = "UnhideButton"
+    UnhideButton.Parent = EngoUI
+    UnhideButton.AnchorPoint = Vector2.new(1, 1)
+    UnhideButton.Position = UDim2.new(1, -15, 1, -15) -- pojok kanan bawah
+    UnhideButton.Size = UDim2.new(0, 35, 0, 35)
+    UnhideButton.BackgroundTransparency = 0.3
+    UnhideButton.BackgroundColor3 = theme.DarkContrast
+    UnhideButton.Image = "rbxassetid://6031090990" -- icon show / open
+    UnhideButton.ImageColor3 = theme.TextColor
+    UnhideButton.Visible = false -- disembunyikan dulu sampai UI di-hide
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 6)
+    corner.Parent = UnhideButton
+
     Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Main.Position = UDim2.new(0.54207927, 0, 0.307602346, 0)
     Main.Size = UDim2.new(0, 550, 0, 397)
@@ -213,8 +230,15 @@ function library:CreateMain(title, description, keycode)
     HideIcon.ImageColor3 = theme.TextColor
 
     HideIcon.MouseButton1Click:Connect(function()
-        Main.Visible = not Main.Visible
+        Main.Visible = false
+        UnhideButton.Visible = true
     end)
+
+    UnhideButton.MouseButton1Click:Connect(function()
+        Main.Visible = true
+        UnhideButton.Visible = false
+    end)
+
 
 
 
