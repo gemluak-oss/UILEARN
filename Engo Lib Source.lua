@@ -184,6 +184,10 @@ function library:CreateMain(title, description, keycode)
     local corner = Instance.new("UICorner")
     corner.CornerRadius = UDim.new(0, 6)
     corner.Parent = UnhideButton
+    UnhideButton.ZIndex = 9999
+    UnhideButton.Active = true
+    UnhideButton.Selectable = true
+    UnhideButton.AutoButtonColor = true
 
     Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Main.Position = UDim2.new(0.54207927, 0, 0.307602346, 0)
@@ -230,14 +234,13 @@ function library:CreateMain(title, description, keycode)
     HideIcon.ImageColor3 = theme.TextColor
 
     HideIcon.MouseButton1Click:Connect(function()
-        Main.Visible = false
-        UnhideButton.Visible = true
+        task.defer(function()
+            Main.Visible = false
+            UnhideButton.Visible = true
+            UnhideButton.ZIndex = 9999
+        end)
     end)
 
-    UnhideButton.MouseButton1Click:Connect(function()
-        Main.Visible = true
-        UnhideButton.Visible = false
-    end)
 
 
 
