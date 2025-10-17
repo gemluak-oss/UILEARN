@@ -3,7 +3,6 @@ local mouse = game.Players.LocalPlayer:GetMouse()
 local TS = game:GetService("TweenService")
 local RS = game:GetService("RunService")
 local UIS = game:GetService("UserInputService")
-local rainbowvalue = 0.01
 
 -- Themes
 EngoThemes = {
@@ -1527,3 +1526,4 @@ end
 
 
 return library
+
