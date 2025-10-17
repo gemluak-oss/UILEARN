@@ -1,3 +1,9 @@
+-- // EngoUI V2
+local mouse = game.Players.LocalPlayer:GetMouse()
+local TS = game:GetService("TweenService")
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local rainbowvalue = 0.01
 
 -- Themes
 EngoThemes = {
@@ -157,7 +163,7 @@ function library:CreateMain(title, description, keycode)
     local Title = Instance.new("TextLabel")
     local Description = Instance.new("TextLabel")
 
-    EngoUI.Name = "EngoUI"
+    EngoUI.Name = "Asgard"
     EngoUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
     Main.Name = "Main"
@@ -1519,7 +1525,4 @@ function library:CreateMain(title, description, keycode)
     return library2
 end
 
-
 return library
-
-
