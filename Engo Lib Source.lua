@@ -62,7 +62,7 @@ EngoThemes = {
         Darkness = Color3.fromRGB(0, 0, 0),
     },
 }
-local theme = EngoThemes.Engo
+local theme = EngoThemes.Crimson
 
 -- Functions
 local old_err = error
@@ -241,9 +241,16 @@ function library:CreateMain(title, description, keycode)
         end)
     end)
 
-
-
-
+    -- fungsi unhide
+    UnhideButton.MouseButton1Click:Connect(function()
+        local mainFrame = EngoUI:FindFirstChild("Main")
+        if mainFrame then
+            mainFrame.Visible = true
+            UnhideButton.Visible = false
+        else
+            warn("[EngoUI] Gagal menemukan frame 'Main'")
+        end
+    end)
 
     Info.Name = "Info"
     Info.Parent = Topbar
