@@ -1,8 +1,3 @@
--- // EngoUI V2
-local mouse = game.Players.LocalPlayer:GetMouse()
-local TS = game:GetService("TweenService")
-local RS = game:GetService("RunService")
-local UIS = game:GetService("UserInputService")
 
 -- Themes
 EngoThemes = {
@@ -1526,4 +1521,5 @@ end
 
 
 return library
+
 
