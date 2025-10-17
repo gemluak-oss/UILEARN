@@ -62,7 +62,7 @@ EngoThemes = {
         Darkness = Color3.fromRGB(0, 0, 0),
     },
 }
-local theme = EngoThemes.Engo
+local theme = EngoThemes.Crimson
 
 -- Functions
 local old_err = error
@@ -1526,3 +1526,4 @@ function library:CreateMain(title, description, keycode)
 end
 
 return library
+
