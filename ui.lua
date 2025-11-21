@@ -1020,8 +1020,8 @@ function Ruinz:Window(GuiConfig)
     UIStroke14.Transparency = 0.8
     UIStroke14.Parent = DropdownSelect
     DropdownSelectReal.AnchorPoint = Vector2.new(0.5, 0.5)
-    DropdownSelectReal.BackgroundColor3 = GuiConfig.Color
-    DropdownSelectReal.BackgroundTransparency = 0.7
+    DropdownSelectReal.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    DropdownSelectReal.BackgroundTransparency = 0.2
     DropdownSelectReal.BorderColor3 = Color3.fromRGB(0, 0, 0)
     DropdownSelectReal.BorderSizePixel = 0
     DropdownSelectReal.LayoutOrder = 1
