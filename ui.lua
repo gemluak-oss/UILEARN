@@ -260,8 +260,8 @@ function CircleClick(Button, X, Y)
     end)
 end
 
-local Chloex = {}
-function Chloex:MakeNotify(NotifyConfig)
+local Ruinz = {}
+function Ruinz:MakeNotify(NotifyConfig)
     local NotifyConfig = NotifyConfig or {}
     NotifyConfig.Title = NotifyConfig.Title or "Than-Hub"
     NotifyConfig.Description = NotifyConfig.Description or "Notification"
@@ -460,7 +460,7 @@ function Chloex:MakeNotify(NotifyConfig)
 end
 
 function than(msg, delay, color, title, desc)
-    return Chloex:MakeNotify({
+    return Ruinz:MakeNotify({
         Title = title or "ThanHub",
         Description = desc or "Notification",
         Content = msg or "Content",
@@ -469,7 +469,7 @@ function than(msg, delay, color, title, desc)
     })
 end
 
-function Chloex:Window(GuiConfig)
+function Ruinz:Window(GuiConfig)
     GuiConfig              = GuiConfig or {}
     GuiConfig.Title        = GuiConfig.Title or "Than-Hub"
     GuiConfig.Footer       = GuiConfig.Footer or "Chloee :3"
@@ -482,7 +482,7 @@ function Chloex:Window(GuiConfig)
 
     local GuiFunc = {}
 
-    local Chloeex = Instance.new("ScreenGui");
+    local Ruinzz = Instance.new("ScreenGui");
     local DropShadowHolder = Instance.new("Frame");
     local DropShadow = Instance.new("ImageLabel");
     local Main = Instance.new("Frame");
@@ -505,10 +505,10 @@ function Chloex:Window(GuiConfig)
     local LayersFolder = Instance.new("Folder");
     local LayersPageLayout = Instance.new("UIPageLayout");
 
-    Chloeex.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    Chloeex.Name = "Chloeex"
-    Chloeex.ResetOnSpawn = false
-    Chloeex.Parent = game:GetService("CoreGui")
+    Ruinzz.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    Ruinzz.Name = "Ruinzz"
+    Ruinzz.ResetOnSpawn = false
+    Ruinzz.Parent = game:GetService("CoreGui")
 
     DropShadowHolder.BackgroundTransparency = 1
     DropShadowHolder.BorderSizePixel = 0
@@ -521,10 +521,10 @@ function Chloex:Window(GuiConfig)
     end
     DropShadowHolder.ZIndex = 0
     DropShadowHolder.Name = "DropShadowHolder"
-    DropShadowHolder.Parent = Chloeex
+    DropShadowHolder.Parent = Ruinzz
 
-    DropShadowHolder.Position = UDim2.new(0, (Chloeex.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0,
-        (Chloeex.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
+    DropShadowHolder.Position = UDim2.new(0, (Ruinzz.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0,
+        (Ruinzz.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
     DropShadow.Image = "rbxassetid://6015897843"
     DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
     DropShadow.ImageTransparency = 1
@@ -747,8 +747,8 @@ function Chloex:Window(GuiConfig)
     ScrollTab.ChildRemoved:Connect(UpdateSize1)
 
     function GuiFunc:DestroyGui()
-        if CoreGui:FindFirstChild("Chloeex") then
-            Chloeex:Destroy()
+        if CoreGui:FindFirstChild("Ruinzz") then
+            Ruinzz:Destroy()
         end
     end
 
@@ -854,7 +854,7 @@ function Chloex:Window(GuiConfig)
         Instance.new("UICorner", Cancel).CornerRadius = UDim.new(0, 6)
 
         Yes.MouseButton1Click:Connect(function()
-            if Chloeex then Chloeex:Destroy() end
+            if Ruinzz then Ruinzz:Destroy() end
             if game.CoreGui:FindFirstChild("ToggleUIButton") then
                 game.CoreGui.ToggleUIButton:Destroy()
             end
@@ -2696,4 +2696,4 @@ function Chloex:Window(GuiConfig)
     return Tabs
 end
 
-return Chloex
+return Ruinz
