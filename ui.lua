@@ -1015,14 +1015,14 @@ function Ruinz:Window(GuiConfig)
     end)
     UICorner36.CornerRadius = UDim.new(0, 3)
     UICorner36.Parent = DropdownSelect
-
-    UIStroke14.Color = Color3.fromRGB(12, 159, 255)
+        -- Stroke jadi silver
+    UIStroke14.Color = Color3.fromRGB(192, 192, 192) -- silver
     UIStroke14.Thickness = 2.5
     UIStroke14.Transparency = 0.8
     UIStroke14.Parent = DropdownSelect
-
-    DropdownSelectReal.AnchorPoint = Vector2.new(0.5, 0.5)
-    DropdownSelectReal.BackgroundColor3 = Color3.fromRGB(0, 27, 98)
+    
+    -- Background mengikuti warna item
+    DropdownSelectReal.BackgroundColor3 = GuiConfig.Color -- pakai warna item dari GuiConfig
     DropdownSelectReal.BackgroundTransparency = 0.7
     DropdownSelectReal.BorderColor3 = Color3.fromRGB(0, 0, 0)
     DropdownSelectReal.BorderSizePixel = 0
@@ -1031,6 +1031,23 @@ function Ruinz:Window(GuiConfig)
     DropdownSelectReal.Size = UDim2.new(1, 1, 1, 1)
     DropdownSelectReal.Name = "DropdownSelectReal"
     DropdownSelectReal.Parent = DropdownSelect
+
+
+    -- UIStroke14.Color = Color3.fromRGB(12, 159, 255)
+    -- UIStroke14.Thickness = 2.5
+    -- UIStroke14.Transparency = 0.8
+    -- UIStroke14.Parent = DropdownSelect
+
+    -- DropdownSelectReal.AnchorPoint = Vector2.new(0.5, 0.5)
+    -- DropdownSelectReal.BackgroundColor3 = Color3.fromRGB(0, 27, 98)
+    -- DropdownSelectReal.BackgroundTransparency = 0.7
+    -- DropdownSelectReal.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    -- DropdownSelectReal.BorderSizePixel = 0
+    -- DropdownSelectReal.LayoutOrder = 1
+    -- DropdownSelectReal.Position = UDim2.new(0.5, 0, 0.5, 0)
+    -- DropdownSelectReal.Size = UDim2.new(1, 1, 1, 1)
+    -- DropdownSelectReal.Name = "DropdownSelectReal"
+    -- DropdownSelectReal.Parent = DropdownSelect
 
     DropdownFolder.Name = "DropdownFolder"
     DropdownFolder.Parent = DropdownSelectReal
