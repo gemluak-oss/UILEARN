@@ -1,17 +1,17 @@
 local HttpService = game:GetService("HttpService")
 
-if not isfolder("ThanHub") then
-    makefolder("ThanHub")
+if not isfolder("Ruinz") then
+    makefolder("Ruinz")
 end
-if not isfolder("ThanHub/Config") then
-    makefolder("ThanHub/Config")
+if not isfolder("Ruinz/Config") then
+    makefolder("Ruinz/Config")
 end
 
 local gameName   = tostring(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
 gameName         = gameName:gsub("[^%w_ ]", "")
 gameName         = gameName:gsub("%s+", "_")
 
-local ConfigFile = "ThanHub/Config/CHX_" .. gameName .. ".json"
+local ConfigFile = "Ruinz/Config/CHX_" .. gameName .. ".json"
 
 ConfigData       = {}
 Elements         = {}
@@ -260,10 +260,10 @@ function CircleClick(Button, X, Y)
     end)
 end
 
-local Chloex = {}
-function Chloex:MakeNotify(NotifyConfig)
+local Ruinz = {}
+function Ruinz:MakeNotify(NotifyConfig)
     local NotifyConfig = NotifyConfig or {}
-    NotifyConfig.Title = NotifyConfig.Title or "Than-Hub"
+    NotifyConfig.Title = NotifyConfig.Title or "Ruinz"
     NotifyConfig.Description = NotifyConfig.Description or "Notification"
     NotifyConfig.Content = NotifyConfig.Content or "Content"
     NotifyConfig.Color = NotifyConfig.Color or Color3.fromRGB(255, 0, 255)
@@ -459,9 +459,9 @@ function Chloex:MakeNotify(NotifyConfig)
     return NotifyFunction
 end
 
-function than(msg, delay, color, title, desc)
-    return Chloex:MakeNotify({
-        Title = title or "ThanHub",
+function ruinz(msg, delay, color, title, desc)
+    return Ruinz:MakeNotify({
+        Title = title or "Ruinz",
         Description = desc or "Notification",
         Content = msg or "Content",
         Color = color or Color3.fromRGB(0, 208, 255),
@@ -469,9 +469,9 @@ function than(msg, delay, color, title, desc)
     })
 end
 
-function Chloex:Window(GuiConfig)
+function Ruinz:Window(GuiConfig)
     GuiConfig              = GuiConfig or {}
-    GuiConfig.Title        = GuiConfig.Title or "Than-Hub"
+    GuiConfig.Title        = GuiConfig.Title or "Ruinz"
     GuiConfig.Footer       = GuiConfig.Footer or "Chloee :3"
     GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(255, 0, 255)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
@@ -805,7 +805,7 @@ function Chloex:Window(GuiConfig)
         Title.Position = UDim2.new(0, 0, 0, 4)
         Title.BackgroundTransparency = 1
         Title.Font = Enum.Font.GothamBold
-        Title.Text = "Than-Hub Window"
+        Title.Text = "Ruinz Window"
         Title.TextSize = 22
         Title.TextColor3 = Color3.fromRGB(255, 255, 255)
         Title.ZIndex = 52
@@ -2696,4 +2696,4 @@ function Chloex:Window(GuiConfig)
     return Tabs
 end
 
-return Chloex
+return Ruinz
