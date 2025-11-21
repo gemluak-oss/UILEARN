@@ -766,16 +766,17 @@ function Ruinz:Window(GuiConfig)
         Overlay.ZIndex = 50
         Overlay.Parent = DropShadowHolder
 
-        local Dialog = Instance.new("ImageLabel")
+        local Dialog = Instance.new("Frame")
         Dialog.Size = UDim2.new(0, 300, 0, 150)
         Dialog.Position = UDim2.new(0.5, -150, 0.5, -75)
-        Dialog.Image = ""
-        Dialog.ImageTransparency = 0
+        Dialog.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        Dialog.BackgroundTransparency = 0.5 
         Dialog.BorderSizePixel = 0
         Dialog.ZIndex = 51
         Dialog.Parent = Overlay
         local UICorner = Instance.new("UICorner", Dialog)
         UICorner.CornerRadius = UDim.new(0, 8)
+
 
         local DialogGlow = Instance.new("Frame")
         DialogGlow.Size = UDim2.new(0, 310, 0, 160)
