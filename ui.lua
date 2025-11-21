@@ -1049,8 +1049,8 @@ function Ruinz:Window(GuiConfig)
     -- DropdownSelectReal.Name = "DropdownSelectReal"
     -- DropdownSelectReal.Parent = DropdownSelect
 
-    DropdownFolder.Name = "DropdownFolder"
-    DropdownFolder.Parent = DropdownSelectReal
+    -- DropdownFolder.Name = "DropdownFolder"
+    -- DropdownFolder.Parent = DropdownSelectReal
 
     DropPageLayout.EasingDirection = Enum.EasingDirection.InOut
     DropPageLayout.EasingStyle = Enum.EasingStyle.Quad
