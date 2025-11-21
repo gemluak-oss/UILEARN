@@ -472,7 +472,7 @@ end
 function Ruinz:Window(GuiConfig)
     GuiConfig              = GuiConfig or {}
     GuiConfig.Title        = GuiConfig.Title or "Ruinz"
-    GuiConfig.Footer       = GuiConfig.Footer or "Chloee :3"
+    GuiConfig.Footer       = GuiConfig.Footer or "rex"
     GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(255, 0, 255)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
