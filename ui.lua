@@ -611,7 +611,7 @@ function Ruinz:Window(GuiConfig)
     Close.Name = "Close"
     Close.Parent = Top
 
-    ImageLabel1.Image = "rbxassetid://9886659671"
+    ImageLabel1.Image = "rbxassetid://92418143751745"
     ImageLabel1.AnchorPoint = Vector2.new(0.5, 0.5)
     ImageLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     ImageLabel1.BackgroundTransparency = 0.9990000128746033
@@ -635,7 +635,7 @@ function Ruinz:Window(GuiConfig)
     Min.Name = "Min"
     Min.Parent = Top
 
-    ImageLabel2.Image = "rbxassetid://9886659276"
+    ImageLabel2.Image = "rbxassetid://101566813225925"
     ImageLabel2.AnchorPoint = Vector2.new(0.5, 0.5)
     ImageLabel2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     ImageLabel2.BackgroundTransparency = 0.9990000128746033
