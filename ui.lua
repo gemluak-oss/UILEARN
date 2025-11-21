@@ -788,18 +788,17 @@ function Ruinz:Window(GuiConfig)
 
         local GlowCorner = Instance.new("UICorner", DialogGlow)
         GlowCorner.CornerRadius = UDim.new(0, 10)
-
+        
         local Gradient = Instance.new("UIGradient")
         Gradient.Color = ColorSequence.new({
-            ColorSequenceKeypoint.new(0.0, Color3.fromRGB(0, 0, 0)),       -- hitam
-            ColorSequenceKeypoint.new(0.25, Color3.fromRGB(255, 255, 255)), -- putih
-            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 0, 0)),       -- hitam
-            ColorSequenceKeypoint.new(0.75, Color3.fromRGB(255, 255, 255)), -- putih
-            ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 0, 0))        -- hitam
+            ColorSequenceKeypoint.new(0.0, Color3.fromRGB(180, 180, 180)), -- abu-abu terang
+            ColorSequenceKeypoint.new(0.25, Color3.fromRGB(220, 220, 220)), -- silver lebih terang
+            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(160, 160, 160)), -- abu-abu gelap
+            ColorSequenceKeypoint.new(0.75, Color3.fromRGB(220, 220, 220)), -- silver
+            ColorSequenceKeypoint.new(1.0, Color3.fromRGB(180, 180, 180))   -- abu-abu terang
         })
         Gradient.Rotation = 90
         Gradient.Parent = DialogGlow
-
 
         local Title = Instance.new("TextLabel")
         Title.Size = UDim2.new(1, 0, 0, 40)
