@@ -41,63 +41,69 @@ end
 Custom:EnabledAFK()
 
 local function OpenClose()
-  local ScreenGui = Custom:Create("ScreenGui", {
-    Name = "OpenClose",
-    ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-  }, RunService:IsStudio() and Player.PlayerGui or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
+    local ScreenGui = Custom:Create("ScreenGui", {
+        Name = "OpenClose",
+        ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    }, RunService:IsStudio() and Player.PlayerGui or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
 
-  local Close_ImageButton = Custom:Create("ImageButton", {
-    BorderSizePixel = 1,
-    Position = UDim2.new(0.1021, 0, 0.0743, 0),
-    Size = UDim2.new(0, 45, 0, 45),
-    Image = "rbxassetid://136343770817701",
-    Visible = false
-  }, ScreenGui)
+    -- WRAPPER FRAME (untuk background hitam)
+    local ButtonFrame = Custom:Create("Frame", {
+        Position = UDim2.new(0.1021, 0, 0.0743, 0),
+        Size = UDim2.new(0, 45, 0, 45),
+        BackgroundColor3 = Color3.fromRGB(0, 0, 0), -- HITAM POLOS
+        BorderSizePixel = 0,
+        Visible = false
+    }, ScreenGui)
 
-  local UICorner = Custom:Create("UICorner", {
-    Name = "MainCorner",
-    CornerRadius = UDim.new(0, 12),
-  }, Close_ImageButton)
+    local UICorner = Custom:Create("UICorner", {
+        Name = "MainCorner",
+        CornerRadius = UDim.new(0, 12),
+    }, ButtonFrame)
 
-  -- -- Add gradient to the open/close button
-  -- local UIGradient = Custom:Create("UIGradient", {
-  --   Color = ColorSequence.new{
-  --     ColorSequenceKeypoint.new(0, Custom.ColorRGB),
-  --     ColorSequenceKeypoint.new(0.5, Custom.AccentColor),
-  --     ColorSequenceKeypoint.new(1, Custom.DarkBlue)
-  --   },
-  --   Rotation = 45,
-  -- }, Close_ImageButton)
+    -- IMAGE BUTTON DI ATAS BACKGROUND
+    local Close_ImageButton = Custom:Create("ImageButton", {
+        Size = UDim2.new(1, -6, 1, -6),
+        Position = UDim2.new(0, 3, 0, 3),
+        BackgroundTransparency = 1,
+        Image = "rbxassetid://136343770817701"
+    }, ButtonFrame)
 
-  local dragging, dragStart, startPos = false, nil, nil
+    -- ================= DRAG SYSTEM =================
+    local dragging, dragStart, startPos = false, nil, nil
 
-  local function UpdateDraggable(input)
-    local delta = input.Position - dragStart
-    Close_ImageButton.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-  end
+    local function UpdateDraggable(input)
+        local delta = input.Position - dragStart
+        ButtonFrame.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
+    end
 
-  Close_ImageButton.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
-      dragging = true
-      dragStart = input.Position
-      startPos = Close_ImageButton.Position
+    Close_ImageButton.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+            dragging = true
+            dragStart = input.Position
+            startPos = ButtonFrame.Position
 
-      input.Changed:Connect(function()
-        if input.UserInputState == Enum.UserInputState.End then
-          dragging = false
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
         end
-      end)
-    end
-  end)
+    end)
 
-  Close_ImageButton.InputChanged:Connect(function(input)
-    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-      UpdateDraggable(input)
-    end
-  end)
+    Close_ImageButton.InputChanged:Connect(function(input)
+        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+            UpdateDraggable(input)
+        end
+    end)
 
-  return Close_ImageButton
+    return ButtonFrame
 end
+
 
 local Open_Close = OpenClose()
 local TweenService = game:GetService("TweenService")
