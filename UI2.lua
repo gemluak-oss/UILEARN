@@ -7,12 +7,12 @@ local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
 
 local Custom = {} do
-  -- Modern gradient colors: Deep purple to dark blue
-	Custom.ColorRGB = Color3.fromRGB(72, 61, 139) -- SlateBlue primary (lebih terang dari Midnight)
-	Custom.AccentColor = Color3.fromRGB(106, 90, 205) -- MediumSlateBlue accent
-	Custom.DarkBlue = Color3.fromRGB(30, 30, 120) -- Darker Indigo tapi lebih cerah dari sebelumnya
-	Custom.BackgroundDark = Color3.fromRGB(25, 25, 50) -- Dark navy, masih gelap tapi enak dilihat
-	Custom.FrameDark = Color3.fromRGB(40, 40, 70) -- Lebih terang biar kontras dengan background
+    -- Tema hitam & putih (clean + modern)
+    Custom.ColorRGB = Color3.fromRGB(255, 255, 255)      -- Putih utama (primary)
+    Custom.AccentColor = Color3.fromRGB(200, 200, 200)   -- Abu terang (accent)
+    Custom.DarkBlue = Color3.fromRGB(90, 90, 90)         -- Abu gelap pengganti biru
+    Custom.BackgroundDark = Color3.fromRGB(15, 15, 15)   -- Hitam pekat background
+    Custom.FrameDark = Color3.fromRGB(30, 30, 30)        -- Abu gelap untuk frame
 
 function Custom:Create(Name, Properties, Parent)
     local _instance = Instance.new(Name)
