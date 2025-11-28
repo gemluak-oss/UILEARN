@@ -322,7 +322,7 @@ function Speed_Library:SetNotification(Config)
         TextXAlignment=Enum.TextXAlignment.Left,
         BackgroundTransparency=0.999,
         Size=UDim2.new(1,0,1,0),
-        Position=UDim2.new(0,TextLabel.TextBounds.X+15,0,0),
+        Position=UDim2.new(0,TextLabel.TextBounds.X+25,0,0),
         Parent=Top
     })
 
