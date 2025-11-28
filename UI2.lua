@@ -654,12 +654,14 @@ local TextLabel1 = Custom:Create("TextLabel", {
     TextWrapped = true,
     TextXAlignment = Enum.TextXAlignment.Left,
     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-    BackgroundTransparency = 0.9990000128746033,
+    BackgroundTransparency = 0.999,
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
     Size = UDim2.new(1, 0, 0, 30),
+    Position = UDim2.new(0.1, 0, 0, 0), -- geser 10% ke kanan
     Name = "NameTab"
   }, Layers)
+
 
   Custom:Create("UIStroke", {
     Color = Custom.ColorRGB,
