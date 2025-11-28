@@ -890,193 +890,186 @@ local ConnectButton = Custom:Create("TextButton", {
  local Tabs = {}
   local CountTab = 0
   local CountDropdown = 0
-  function Tabs:CreateTab(Config)
-    local _Name = Config[1] or Config.Name or "" 
-    local Icon = Config[2] or Config.Icon or ""
-    
-    local ScrolLayers = Custom:Create("ScrollingFrame", {
-			ScrollBarImageColor3 = Custom.ColorRGB,
-			ScrollBarThickness = 4,
-			Active = true,
-			LayoutOrder = CountTab,
-			BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-			BackgroundTransparency = 0.999,
-			BorderColor3 = Color3.fromRGB(0, 0, 0),
-			BorderSizePixel = 0,
-			Size = UDim2.new(1, 0, 1, 0),
-			Name = "ScrolLayers",
-			Parent = LayersFolder
-		})
+	function Tabs:CreateTab(Config)
+	    local _Name = Config[1] or Config.Name or "" 
+	    local Icon = Config[2] or Config.Icon or ""
+	    
+	    local ScrolLayers = Custom:Create("ScrollingFrame", {
+	        ScrollBarImageColor3 = Custom.ColorRGB,
+	        ScrollBarThickness = 4,
+	        Active = true,
+	        LayoutOrder = CountTab,
+	        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+	        BackgroundTransparency = 0.999,
+	        BorderColor3 = Color3.fromRGB(0, 0, 0),
+	        BorderSizePixel = 0,
+	        Size = UDim2.new(1, 0, 1, 0),
+	        Name = "ScrolLayers",
+	        Parent = LayersFolder
+	    })
+	
+	    Custom:Create("UIListLayout", {
+	        Padding = UDim.new(0, 10),
+	        SortOrder = Enum.SortOrder.LayoutOrder,
+	        Parent = ScrolLayers
+	    })
+	
+	    local Tab = Custom:Create("Frame", {
+	        BackgroundColor3 = CountTab == 0 and Custom.FrameDark or Custom.BackgroundDark,
+	        BackgroundTransparency = CountTab == 0 and 0.3 or 0.7,
+	        BorderColor3 = Color3.fromRGB(0, 0, 0),
+	        BorderSizePixel = 0,
+	        LayoutOrder = CountTab,
+	        Size = UDim2.new(1, 0, 0, 35),
+	        Name = "Tab",
+	        Parent = ScrollTab
+	    })
+	
+	    Custom:Create("UIPadding", {PaddingTop = UDim.new(0, 5), PaddingBottom = UDim.new(0, 5), Parent = Tab})
+	    Custom:Create("UICorner", {CornerRadius = UDim.new(0, 5)}, Tab)
+	
+	    -- Gradient & Stroke
+	    Custom:Create("UIGradient", {
+	        Color = ColorSequence.new{
+	            ColorSequenceKeypoint.new(0, Custom.FrameDark),
+	            ColorSequenceKeypoint.new(0.5, Custom.AccentColor),
+	            ColorSequenceKeypoint.new(1, Custom.DarkBlue)
+	        },
+	        Rotation = 45,
+	    }, Tab)
+	
+	    Custom:Create("UIStroke", {
+	        Color = CountTab == 0 and Custom.ColorRGB or Color3.fromRGB(60, 60, 80),
+	        Thickness = 1.5,
+	        Transparency = CountTab == 0 and 0.2 or 0.8
+	    }, Tab)
+	
+	    local TabButton = Custom:Create("TextButton", {
+	        Font = Enum.Font.GothamBold,
+	        Text = "",
+	        TextColor3 = Color3.fromRGB(255, 255, 255),
+	        TextSize = 13,
+	        TextXAlignment = Enum.TextXAlignment.Left,
+	        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+	        BackgroundTransparency = 0.999,
+	        BorderColor3 = Color3.fromRGB(0, 0, 0),
+	        BorderSizePixel = 0,
+	        Size = UDim2.new(1, 0, 1, 0),
+	        Name = "TabButton",
+	    }, Tab)
+	
+	    local TabName = Custom:Create("TextLabel", {
+	        Font = Enum.Font.GothamBold,
+	        Text = _Name,
+	        TextColor3 = Color3.fromRGB(255, 255, 255),
+	        TextSize = 13,
+	        TextXAlignment = Enum.TextXAlignment.Left,
+	        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+	        BackgroundTransparency = 0.999,
+	        Size = UDim2.new(1, 0, 1, 0),
+	        Position = UDim2.new(0, 32, 0, 0),
+	        Name = "TabName",
+	    }, Tab)
+	
+	    Custom:Create("UIStroke", {Color = Color3.fromRGB(255, 255, 255), Thickness = 0.6, Transparency = 0.5}, TabName)
+	
+	    Custom:Create("ImageLabel", {
+	        Image = Icon,
+	        ImageColor3 = Custom.ColorRGB,
+	        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+	        BackgroundTransparency = 0.999,
+	        BorderColor3 = Color3.fromRGB(0, 0, 0),
+	        BorderSizePixel = 0,
+	        Position = UDim2.new(0, 8, 0, 4),
+	        Size = UDim2.new(0, 18, 0, 18),
+	        Name = "FeatureImg",
+	    }, Tab)
+	
+	    -- Tab aktif pertama
+	    if CountTab == 0 then
+	        LayersPageLayout:JumpToIndex(0)
+	        NameTab.Text = _Name
+	
+	        local ChooseFrame = Custom:Create("Frame", {
+	            BackgroundColor3 = Custom.ColorRGB,
+	            BorderColor3 = Color3.fromRGB(0, 0, 0),
+	            BorderSizePixel = 0,
+	            Position = UDim2.new(0, 3, 0, 4),
+	            Size = UDim2.new(0, 2, 0, 16),
+	            Name = "ChooseFrame",
+	        }, Tab)
+	
+	        Custom:Create("UIStroke", {Color = Custom.ColorRGB, Thickness = 2}, ChooseFrame)
+	        Custom:Create("UICorner", {CornerRadius = UDim.new(0, 3)}, ChooseFrame)
+	        Custom:Create("UIGradient", {
+	            Color = ColorSequence.new{
+	                ColorSequenceKeypoint.new(0, Custom.ColorRGB),
+	                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255)),
+	                ColorSequenceKeypoint.new(1, Custom.ColorRGB)
+	            },
+	            Rotation = 90,
+	        }, ChooseFrame)
+	    end
+	
+	    -- Event klik tab
+	    TabButton.Activated:Connect(function()
+	        CircleClick(TabButton, Player:GetMouse().X, Player:GetMouse().Y)
+	        local FrameChoose = nil
+	        for _, s in pairs(ScrollTab:GetChildren()) do
+	            for _, v in pairs(s:GetChildren()) do
+	                if v.Name == "ChooseFrame" then
+	                    FrameChoose = v
+	                    break
+	                end
+	            end
+	            if FrameChoose then break end
+	        end
+	
+	        if FrameChoose and Tab.LayoutOrder ~= LayersPageLayout.CurrentPage.LayoutOrder then
+	            for _, TabFrame in pairs(ScrollTab:GetChildren()) do
+	                if TabFrame.Name == "Tab" then
+	                    local stroke = TabFrame:FindFirstChild("UIStroke")
+	                    TweenService:Create(TabFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.7}):Play()
+	                    if stroke then
+	                        TweenService:Create(stroke, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Transparency = 0.8}):Play()
+	                    end
+	                end
+	            end
+	
+	            local _TabT = TweenService:Create(Tab, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.3})
+	            local _TabStroke = TweenService:Create(Tab:FindFirstChild("UIStroke"), TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Transparency = 0.2})
+	            local _FTween = TweenService:Create(FrameChoose, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Position = UDim2.new(0, 3, 0, 4 + (37 * Tab.LayoutOrder))})
+	
+	            _TabT:Play()
+	            _TabStroke:Play()
+	            _FTween:Play()
+	
+	            LayersPageLayout:JumpToIndex(Tab.LayoutOrder)
+	
+	            task.wait(0.05)
+	            NameTab.Text = _Name
+	            TweenService:Create(FrameChoose, TweenInfo.new(0.35, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 2, 0, 22)}):Play()
+	            task.wait(0.2)
+	            TweenService:Create(FrameChoose, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 2, 0, 16)}):Play()
+	        end
+	    end)
+	
+	    -- **Update CanvasSize ScrollTab supaya tab bawah tidak terpotong**
+	    local function UpdateScrollTab()
+	        local totalHeight = 0
+	        for _, t in ipairs(ScrollTab:GetChildren()) do
+	            if t:IsA("Frame") and t.Name == "Tab" then
+	                totalHeight = totalHeight + t.Size.Y.Offset + 5 -- padding antar tab
+	            end
+	        end
+	        ScrollTab.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
+	    end
+	    UpdateScrollTab()  -- panggil setiap buat tab baru
+	
+	    CountTab += 1
+	    return Tab
+	end
 
-	Custom:Create("UIListLayout", {
-	  Padding = UDim.new(0, 10), -- jarak antar tab
-	  SortOrder = Enum.SortOrder.LayoutOrder,
-	  Parent = ScrolLayers
-	})
-
-    local Tab = Custom:Create("Frame", {
-			BackgroundColor3 = CountTab == 0 and Custom.FrameDark or Custom.BackgroundDark,
-			BackgroundTransparency = CountTab == 0 and 0.3 or 0.7,
-			BorderColor3 = Color3.fromRGB(0, 0, 0),
-			BorderSizePixel = 0,
-			LayoutOrder = CountTab,
-			Size = UDim2.new(1, 0, 0, 35),
-			Name = "Tab",
-			Parent = ScrollTab
-		})
-
-	Custom:Create("UIPadding", {
-    PaddingTop = UDim.new(0, 5),
-    PaddingBottom = UDim.new(0, 5),
-    Parent = Tab
-	})
-
-    Custom:Create("UICorner", {
-      CornerRadius = UDim.new(0, 5),
-      Parent = Tab
-    })
-
-    -- Tab gradient effect
-    Custom:Create("UIGradient", {
-      Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0, Custom.FrameDark),
-        ColorSequenceKeypoint.new(0.5, Custom.AccentColor),
-        ColorSequenceKeypoint.new(1, Custom.DarkBlue)
-      },
-      Rotation = 45,
-    }, Tab)
-
-    Custom:Create("UIStroke", {
-      Color = CountTab == 0 and Custom.ColorRGB or Color3.fromRGB(60, 60, 80),
-      Thickness = 1.5,
-      Transparency = CountTab == 0 and 0.2 or 0.8
-    }, Tab)
-
-    local TabButton = Custom:Create("TextButton", {
-      Font = Enum.Font.GothamBold,
-      Text = "",
-      TextColor3 = Color3.fromRGB(255, 255, 255),
-      TextSize = 13,
-      TextXAlignment = Enum.TextXAlignment.Left,
-      BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-      BackgroundTransparency = 0.999,
-      BorderColor3 = Color3.fromRGB(0, 0, 0),
-      BorderSizePixel = 0,
-      Size = UDim2.new(1, 0, 1, 0),
-      Name = "TabButton",
-    }, Tab)
-
-    local TabName = Custom:Create("TextLabel", {
-      Font = Enum.Font.GothamBold,
-      Text = _Name,
-      TextColor3 = Color3.fromRGB(255, 255, 255),
-      TextSize = 13,
-      TextXAlignment = Enum.TextXAlignment.Left,
-      BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-      BackgroundTransparency = 0.9990000128746033,
-      BorderColor3 = Color3.fromRGB(0, 0, 0),
-      BorderSizePixel = 0,
-      Size = UDim2.new(1, 0, 1, 0),
-      Position = UDim2.new(0, 32, 0, 0),
-      Name = "TabName",
-    }, Tab)
-
-    Custom:Create("UIStroke", {
-      Color = Color3.fromRGB(255, 255, 255),
-      Thickness = 0.6,
-      Transparency = 0.5
-    }, TabName)
-
-    Custom:Create("ImageLabel", {
-      Image = Icon,
-      ImageColor3 = Custom.ColorRGB,
-      BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-      BackgroundTransparency = 0.999,
-      BorderColor3 = Color3.fromRGB(0, 0, 0),
-      BorderSizePixel = 0,
-      Position = UDim2.new(0, 8, 0, 4),
-      Size = UDim2.new(0, 18, 0, 18),
-      Name = "FeatureImg",
-    }, Tab)
-
-    if CountTab == 0 then
-      LayersPageLayout:JumpToIndex(0)
-      NameTab.Text = _Name
-  
-      local ChooseFrame = Custom:Create("Frame", {
-        BackgroundColor3 = Custom.ColorRGB,
-        BorderColor3 = Color3.fromRGB(0, 0, 0),
-        BorderSizePixel = 0,
-        Position = UDim2.new(0, 3, 0, 4),
-        Size = UDim2.new(0, 2, 0, 16),
-        Name = "ChooseFrame",
-      }, Tab)
-  
-      Custom:Create("UIStroke", {
-        Color = Custom.ColorRGB,
-        Thickness = 2,
-      }, ChooseFrame)
-  
-      Custom:Create("UICorner", {
-        CornerRadius = UDim.new(0, 3)
-      }, ChooseFrame)
-
-      -- Glowing effect for active tab
-      Custom:Create("UIGradient", {
-        Color = ColorSequence.new{
-          ColorSequenceKeypoint.new(0, Custom.ColorRGB),
-          ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255)),
-          ColorSequenceKeypoint.new(1, Custom.ColorRGB)
-        },
-        Rotation = 90,
-      }, ChooseFrame)
-    end
-
-    TabButton.Activated:Connect(function()
-      CircleClick(TabButton, Player:GetMouse().X, Player:GetMouse().Y)
-      local FrameChoose = nil
-
-      for _, s in pairs(ScrollTab:GetChildren()) do
-        for _, v in pairs(s:GetChildren()) do
-          if v.Name == "ChooseFrame" then
-            FrameChoose = v
-            break
-          end
-        end
-
-        if FrameChoose then break end
-      end
-  
-      if FrameChoose and Tab.LayoutOrder ~= LayersPageLayout.CurrentPage.LayoutOrder then
-        for _, TabFrame in pairs(ScrollTab:GetChildren()) do
-          if TabFrame.Name == "Tab" then
-            local stroke = TabFrame:FindFirstChild("UIStroke")
-            TweenService:Create(TabFrame, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.7}):Play()
-            if stroke then
-              TweenService:Create(stroke, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Transparency = 0.8}):Play()
-            end
-          end
-        end
-  
-        local _TabT = TweenService:Create(Tab, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.3})
-        local _TabStroke = TweenService:Create(Tab:FindFirstChild("UIStroke"), TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Transparency = 0.2})
-        local _FTween = TweenService:Create(FrameChoose, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Position = UDim2.new(0, 3, 0, 4 + (37 * Tab.LayoutOrder))})
-  
-        _TabT:Play()
-        _TabStroke:Play()
-        _FTween:Play()
-  
-        LayersPageLayout:JumpToIndex(Tab.LayoutOrder)
-  
-        task.wait(0.05)
-        NameTab.Text = _Name
-  
-        TweenService:Create(FrameChoose, TweenInfo.new(0.35, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 2, 0, 22)}):Play()
-  
-        task.wait(0.2)
-        TweenService:Create(FrameChoose, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 2, 0, 16)}):Play()
-      end
-    end)
 
 local Sections, CountSection = {}, 0
 
