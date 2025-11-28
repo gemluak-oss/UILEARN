@@ -47,12 +47,10 @@ local function OpenClose()
   }, RunService:IsStudio() and Player.PlayerGui or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
 
   local Close_ImageButton = Custom:Create("ImageButton", {
-    BackgroundColor3 = Custom.BackgroundDark,
-    BorderColor3 = Custom.ColorRGB,
     BorderSizePixel = 1,
     Position = UDim2.new(0.1021, 0, 0.0743, 0),
-    Size = UDim2.new(0, 59, 0, 49),
-    Image = "rbxassetid://85779221265543",
+    Size = UDim2.new(0, 45, 0, 45),
+    Image = "rbxassetid://136343770817701",
     Visible = false
   }, ScreenGui)
 
