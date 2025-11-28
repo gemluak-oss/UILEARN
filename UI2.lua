@@ -1356,15 +1356,18 @@ function Item:AddParagraph(Config)
             ParagraphContent.Font,
             Vector2.new(ParagraphContent.AbsoluteSize.X, math.huge)
         )
+
+        local titlePadding = 13 + 10 -- tinggi judul + jarak atas
+        local bottomPadding = 10      -- jarak bawah konten
         ParagraphContent.Size = UDim2.new(1, -16, 0, textSize.Y)
-        Paragraph.Size = UDim2.new(1, 0, 0, textSize.Y + 33)
+        Paragraph.Size = UDim2.new(1, 0, 0, textSize.Y + titlePadding + bottomPadding)
+
         UpdateSizeSection()
     end
 
     UpdateParagraphSize()
     ParagraphContent:GetPropertyChangedSignal("AbsoluteSize"):Connect(UpdateParagraphSize)
 
-    -- fungsi helper untuk konversi warna ke RichText
     local function parseColors(str)
         local coloredStr = str
         coloredStr = coloredStr:gsub('default%("([^"]-)"%)', '<font color="#ffffff"><b>%1</b></font>')
