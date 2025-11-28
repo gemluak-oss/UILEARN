@@ -504,10 +504,10 @@ local TextLabel = Custom:Create("TextLabel", {
   }, TextLabel)
 
 local TextLabel1 = Custom:Create("TextLabel", {
-    Font = Enum.Font.GothamBold,
+	Font = Enum.Font.GothamLight,
     Text = Description,
     TextColor3 = Custom.ColorRGB,
-    TextSize = 14,
+    TextSize = 12,
     TextXAlignment = Enum.TextXAlignment.Center,
     TextYAlignment = Enum.TextYAlignment.Center,
     BackgroundTransparency = 1,
