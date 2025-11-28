@@ -255,7 +255,7 @@ function Speed_Library:SetNotification(Config)
         Name = "NotificationFrameReal"
     }, NotificationFrame)
 
-    Custom:Create("UICorner",{CornerRadius=UDim.new(0,12)}, NotificationFrameReal)
+    Custom:Create("UICorner",{CornerRadius=UDim.new(0,5)}, NotificationFrameReal)
 
     -- Modern gradient for notifications
     Custom:Create("UIGradient", {
@@ -312,7 +312,7 @@ function Speed_Library:SetNotification(Config)
     })
 
     Custom:Create("UIStroke",{Color=Color3.fromRGB(255,255,255),Thickness=0.5,Parent=TextLabel})
-    Custom:Create("UICorner",{Parent=Top,CornerRadius=UDim.new(0,8)})
+    Custom:Create("UICorner",{Parent=Top,CornerRadius=UDim.new(0,5)})
 
     local TextLabel1 = Custom:Create("TextLabel", {
         Font=Enum.Font.GothamBold,
@@ -587,7 +587,7 @@ local TextLabel1 = Custom:Create("TextLabel", {
   }, Main)
 
   Custom:Create("UICorner", {
-    CornerRadius = UDim.new(0, 8)
+    CornerRadius = UDim.new(0, 5)
   }, LayersTab)
 
   -- Tab section gradient
@@ -627,7 +627,7 @@ local TextLabel1 = Custom:Create("TextLabel", {
   }, Main)
 
   Custom:Create("UICorner", {
-    CornerRadius = UDim.new(0, 8)
+    CornerRadius = UDim.new(0, 5)
   }, Layers)
 
   -- Content area gradient
@@ -792,7 +792,7 @@ local TextLabel1 = Custom:Create("TextLabel", {
   }, DropShadowHolder1)
 
   Custom:Create("UICorner", {
-    CornerRadius = UDim.new(0, 12)
+    CornerRadius = UDim.new(0, 5)
   }, MoreBlur)
 
 local ConnectButton = Custom:Create("TextButton", {
@@ -836,7 +836,7 @@ local ConnectButton = Custom:Create("TextButton", {
   end)
 
   Custom:Create("UICorner", {
-    CornerRadius = UDim.new(0, 8),
+    CornerRadius = UDim.new(0, 5),
     Parent = DropdownSelect
   })
 
@@ -930,7 +930,7 @@ local ConnectButton = Custom:Create("TextButton", {
 	})
 
     Custom:Create("UICorner", {
-      CornerRadius = UDim.new(0, 8),
+      CornerRadius = UDim.new(0, 5),
       Parent = Tab
     })
 
@@ -1106,7 +1106,7 @@ local Sections, CountSection = {}, 0
       }, Section)
   
       Custom:Create("UICorner", {
-        CornerRadius = UDim.new(0, 8)
+        CornerRadius = UDim.new(0, 5)
       }, SectionReal)
 
       -- Section gradient
@@ -1149,7 +1149,7 @@ local Sections, CountSection = {}, 0
       }, SectionReal)
 
       Custom:Create("UICorner", {
-        CornerRadius = UDim.new(0, 6)
+        CornerRadius = UDim.new(0, 5)
       }, FeatureFrame)
   
       local FeatureImg = Custom:Create("ImageLabel", {
@@ -1220,7 +1220,7 @@ local Sections, CountSection = {}, 0
       }, Section)
   
       Custom:Create("UICorner", {
-        CornerRadius = UDim.new(0, 6)
+        CornerRadius = UDim.new(0, 5)
       }, SectionAdd)
     
       Custom:Create("UIListLayout", {
@@ -1412,7 +1412,7 @@ end
         }, Seperator)
         
         Custom:Create("UICorner", {
-          CornerRadius = UDim.new(0, 6),
+          CornerRadius = UDim.new(0, 5),
         }, Seperator)
         
         local Gradient = Custom:Create("UIGradient", {
