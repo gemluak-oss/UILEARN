@@ -59,15 +59,15 @@ local function OpenClose()
     CornerRadius = UDim.new(0, 12),
   }, Close_ImageButton)
 
-  -- Add gradient to the open/close button
-  local UIGradient = Custom:Create("UIGradient", {
-    Color = ColorSequence.new{
-      ColorSequenceKeypoint.new(0, Custom.ColorRGB),
-      ColorSequenceKeypoint.new(0.5, Custom.AccentColor),
-      ColorSequenceKeypoint.new(1, Custom.DarkBlue)
-    },
-    Rotation = 45,
-  }, Close_ImageButton)
+  -- -- Add gradient to the open/close button
+  -- local UIGradient = Custom:Create("UIGradient", {
+  --   Color = ColorSequence.new{
+  --     ColorSequenceKeypoint.new(0, Custom.ColorRGB),
+  --     ColorSequenceKeypoint.new(0.5, Custom.AccentColor),
+  --     ColorSequenceKeypoint.new(1, Custom.DarkBlue)
+  --   },
+  --   Rotation = 45,
+  -- }, Close_ImageButton)
 
   local dragging, dragStart, startPos = false, nil, nil
 
