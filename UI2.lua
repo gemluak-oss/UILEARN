@@ -1089,7 +1089,7 @@ local Sections, CountSection = {}, 0
         BorderSizePixel = 0,
         ClipsDescendants = true,
         LayoutOrder = CountSection,
-        Size = UDim2.new(1, 0, 0, 35),
+        Size = UDim2.new(1, 0, 0, 44),
         Name = "Section"
       }, ScrolLayers)
   
@@ -1101,7 +1101,7 @@ local Sections, CountSection = {}, 0
         BorderSizePixel = 0,
         LayoutOrder = 1,
         Position = UDim2.new(0.5, 0, 0, 0),
-        Size = UDim2.new(1, 1, 0, 35),
+        Size = UDim2.new(1, 1, 0, 44),
         Name = "SectionReal"
       }, Section)
   
