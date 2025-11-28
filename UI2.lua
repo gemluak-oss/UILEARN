@@ -58,7 +58,7 @@ local function OpenClose()
 
     local UICorner = Custom:Create("UICorner", {
         Name = "MainCorner",
-        CornerRadius = UDim.new(0, 12),
+        CornerRadius = UDim.new(0, 5),
     }, Close_ImageButton)
 
     -- TIDAK ADA GRADIENT (DIHAPUS TOTAL)
@@ -441,7 +441,7 @@ function Speed_Library:CreateWindow(Config)
   }, DropShadow)
 
   Custom:Create("UICorner", {
-    CornerRadius = UDim.new(0, 16)
+    CornerRadius = UDim.new(0, 5)
   }, Main)
 
   -- Modern gradient background
