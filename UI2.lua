@@ -1302,11 +1302,13 @@ end
       UpdateSizeScroll()
 
 
-      local Item, ItemCount = {}, 0
+local Item, ItemCount = {}, 0
+
 function Item:AddParagraph(Config)
     local Title = Config[1] or Config.Title or ""
     local Content = Config[2] or Config.Content or ""
     local SettingFuncs = {}
+    local TextService = game:GetService("TextService")
 
     local Paragraph = Custom:Create("Frame", {
         BackgroundColor3 = Color3.fromRGB(255, 255, 255),
@@ -1344,15 +1346,18 @@ function Item:AddParagraph(Config)
         Position = UDim2.new(0, 10, 0, 23),
         Size = UDim2.new(1, -16, 0, 12),
         Name = "ParagraphContent",
-        RichText = true -- penting
+        RichText = true
     }, Paragraph)
 
     local function UpdateParagraphSize()
-        ParagraphContent.TextWrapped = false
-        local lineCount = math.ceil(ParagraphContent.TextBounds.X / ParagraphContent.AbsoluteSize.X)
-        ParagraphContent.Size = UDim2.new(1, -16, 0, 12 + (12 * lineCount))
-        Paragraph.Size = UDim2.new(1, 0, 0, ParagraphContent.AbsoluteSize.Y + 33)
-        ParagraphContent.TextWrapped = true
+        local textSize = TextService:GetTextSize(
+            ParagraphContent.Text,
+            ParagraphContent.TextSize,
+            ParagraphContent.Font,
+            Vector2.new(ParagraphContent.AbsoluteSize.X, math.huge)
+        )
+        ParagraphContent.Size = UDim2.new(1, -16, 0, textSize.Y)
+        Paragraph.Size = UDim2.new(1, 0, 0, textSize.Y + 33)
         UpdateSizeSection()
     end
 
@@ -1362,7 +1367,6 @@ function Item:AddParagraph(Config)
     -- fungsi helper untuk konversi warna ke RichText
     local function parseColors(str)
         local coloredStr = str
-        -- default putih
         coloredStr = coloredStr:gsub('default%("([^"]-)"%)', '<font color="#ffffff"><b>%1</b></font>')
         coloredStr = coloredStr:gsub('red%("([^"]-)"%)', '<font color="#ff0000"><b>%1</b></font>')
         coloredStr = coloredStr:gsub('blue%("([^"]-)"%)', '<font color="#0000ff"><b>%1</b></font>')
@@ -1379,8 +1383,12 @@ function Item:AddParagraph(Config)
     end
 
     ParagraphContent.Text = parseColors(Content)
+    UpdateParagraphSize()
+
+    ItemCount += 1
     return SettingFuncs
 end
+
 
       function Item:AddSeperator(Config)
         local Title = Config[1] or Config.Title or ""
