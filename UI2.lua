@@ -1227,7 +1227,7 @@ local Sections, CountSection = {}, 0
       }, SectionAdd)
     
       Custom:Create("UIListLayout", {
-        Padding = UDim.new(0, 4),
+        Padding = UDim.new(0, 2),
         SortOrder = Enum.SortOrder.LayoutOrder
       }, SectionAdd)
   
