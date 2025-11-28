@@ -46,34 +46,28 @@ local function OpenClose()
         ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     }, RunService:IsStudio() and Player.PlayerGui or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
 
-    -- WRAPPER FRAME (untuk background hitam)
-    local ButtonFrame = Custom:Create("Frame", {
+    local Close_ImageButton = Custom:Create("ImageButton", {
+        BorderSizePixel = 0,
         Position = UDim2.new(0.1021, 0, 0.0743, 0),
         Size = UDim2.new(0, 45, 0, 45),
+        Image = "rbxassetid://136343770817701",
         BackgroundColor3 = Color3.fromRGB(0, 0, 0), -- HITAM POLOS
-        BorderSizePixel = 0,
+        BackgroundTransparency = 0, -- terlihat tapi tidak nutupi image
         Visible = false
     }, ScreenGui)
 
     local UICorner = Custom:Create("UICorner", {
         Name = "MainCorner",
         CornerRadius = UDim.new(0, 12),
-    }, ButtonFrame)
+    }, Close_ImageButton)
 
-    -- IMAGE BUTTON DI ATAS BACKGROUND
-    local Close_ImageButton = Custom:Create("ImageButton", {
-        Size = UDim2.new(1, -6, 1, -6),
-        Position = UDim2.new(0, 3, 0, 3),
-        BackgroundTransparency = 1,
-        Image = "rbxassetid://136343770817701"
-    }, ButtonFrame)
+    -- TIDAK ADA GRADIENT (DIHAPUS TOTAL)
 
-    -- ================= DRAG SYSTEM =================
     local dragging, dragStart, startPos = false, nil, nil
 
     local function UpdateDraggable(input)
         local delta = input.Position - dragStart
-        ButtonFrame.Position = UDim2.new(
+        Close_ImageButton.Position = UDim2.new(
             startPos.X.Scale,
             startPos.X.Offset + delta.X,
             startPos.Y.Scale,
@@ -85,7 +79,7 @@ local function OpenClose()
         if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
             dragging = true
             dragStart = input.Position
-            startPos = ButtonFrame.Position
+            startPos = Close_ImageButton.Position
 
             input.Changed:Connect(function()
                 if input.UserInputState == Enum.UserInputState.End then
@@ -101,7 +95,7 @@ local function OpenClose()
         end
     end)
 
-    return ButtonFrame
+    return Close_ImageButton
 end
 
 
