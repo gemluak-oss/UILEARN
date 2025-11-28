@@ -992,7 +992,7 @@ local ConnectButton = Custom:Create("TextButton", {
       BackgroundTransparency = 0.999,
       BorderColor3 = Color3.fromRGB(0, 0, 0),
       BorderSizePixel = 0,
-      Position = UDim2.new(0, 8, 0, 8),
+      Position = UDim2.new(0, 8, 0, 4),
       Size = UDim2.new(0, 18, 0, 18),
       Name = "FeatureImg",
     }, Tab)
