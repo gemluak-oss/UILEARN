@@ -1089,7 +1089,7 @@ local Sections, CountSection = {}, 0
         BorderSizePixel = 0,
         ClipsDescendants = true,
         LayoutOrder = CountSection,
-        Size = UDim2.new(1, 0, 0, 44),
+        Size = UDim2.new(1, 0, 0, 35),
         Name = "Section"
       }, ScrolLayers)
   
@@ -1101,7 +1101,7 @@ local Sections, CountSection = {}, 0
         BorderSizePixel = 0,
         LayoutOrder = 1,
         Position = UDim2.new(0.5, 0, 0, 0),
-        Size = UDim2.new(1, 1, 0, 44),
+        Size = UDim2.new(1, 1, 0, 35),
         Name = "SectionReal"
       }, Section)
   
@@ -1189,7 +1189,7 @@ local Sections, CountSection = {}, 0
         BorderColor3 = Color3.fromRGB(0, 0, 0),
         BorderSizePixel = 0,
         AnchorPoint = Vector2.new(0.5, 0),
-        Position = UDim2.new(0.5, 0, 0, 44),
+        Position = UDim2.new(0.5, 0, 0, 38),
         Size = UDim2.new(0, 0, 0, 3),
         Name = "SectionDecideFrame"
       }, Section)
@@ -1265,7 +1265,7 @@ local function ToggleSection()
     if OpenSection then
         -- Tutup section
         TweenService:Create(FeatureFrame, TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Rotation = 0}):Play()
-        TweenService:Create(Section, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(1, 1, 0, 44)}):Play()
+        TweenService:Create(Section, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(1, 1, 0, 30)}):Play()
         TweenService:Create(SectionDecideFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 2)}):Play()
 
         OpenSection = false
@@ -1275,7 +1275,7 @@ local function ToggleSection()
         -- Buka section
         OpenSection = true
 
-        local SectionSizeYWitdh = 44
+        local SectionSizeYWitdh = 38
         for _, v in pairs(SectionAdd:GetChildren()) do
             if v.Name ~= "UIListLayout" and v.Name ~= "UICorner" then
                 SectionSizeYWitdh = SectionSizeYWitdh + v.Size.Y.Offset + 3
@@ -1284,7 +1284,7 @@ local function ToggleSection()
 
         TweenService:Create(FeatureFrame, TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Rotation = 90}):Play()
         TweenService:Create(Section, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(1, 1, 0, SectionSizeYWitdh)}):Play()
-        TweenService:Create(SectionAdd, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(1, 0, 0, SectionSizeYWitdh - 44)}):Play()
+        TweenService:Create(SectionAdd, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(1, 0, 0, SectionSizeYWitdh - 38)}):Play()
         TweenService:Create(SectionDecideFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(1, 0, 0, 2)}):Play()
 
         task.wait(0.3)
@@ -1298,6 +1298,7 @@ end
       SectionAdd.ChildRemoved:Connect(UpdateSizeSection)
     
       UpdateSizeScroll()
+
 
       local Item, ItemCount = {}, 0
 function Item:AddParagraph(Config)
