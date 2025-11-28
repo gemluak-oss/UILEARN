@@ -1014,7 +1014,7 @@ local ConnectButton = Custom:Create("TextButton", {
   
       Custom:Create("UIStroke", {
         Color = Custom.ColorRGB,
-        Thickness = 2,
+        Thickness = 0.5,
       }, ChooseFrame)
   
       Custom:Create("UICorner", {
