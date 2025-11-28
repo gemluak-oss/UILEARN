@@ -504,7 +504,7 @@ local TextLabel = Custom:Create("TextLabel", {
   }, TextLabel)
 
 local TextLabel1 = Custom:Create("TextLabel", {
-	Font = Enum.Font.GothamLight,
+	Font = Enum.Font.SciFi,
     Text = Description,
     TextColor3 = Custom.ColorRGB,
     TextSize = 12,
