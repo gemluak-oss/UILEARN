@@ -504,19 +504,19 @@ local TextLabel = Custom:Create("TextLabel", {
   }, TextLabel)
 
 local TextLabel1 = Custom:Create("TextLabel", {
-	Font = Enum.Font.SciFi,
-    Text = Description,
-    TextColor3 = Custom.ColorRGB,
-    TextSize = 12,
-    TextXAlignment = Enum.TextXAlignment.Center,
-    TextYAlignment = Enum.TextYAlignment.Center,
-    BackgroundTransparency = 1,
-    BorderSizePixel = 0,
-    AnchorPoint = Vector2.new(0.5, 0.5),
-    Position = UDim2.new(0.5, 0, 0.72, 0),
-    Size = UDim2.new(0.5, 0, 0.3, 0)
+	Font = Enum.Font.Roboto,
+	Text = Description,
+	TextColor3 = Custom.ColorRGB,
+	TextSize = 14,
+	TextXAlignment = Enum.TextXAlignment.Center,
+	TextYAlignment = Enum.TextYAlignment.Center,
+	BackgroundTransparency = 1,
+	BorderSizePixel = 0,
+	AnchorPoint = Vector2.new(0.5, 0.5),
+	Position = UDim2.new(0.5, 0, 0.72, 0),
+	Size = UDim2.new(0.5, 0, 0.3, 0)
 }, Top)
-
+	
   Custom:Create("UIStroke", {
     Color = Custom.ColorRGB,
     Thickness = 0.6
