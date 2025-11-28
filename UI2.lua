@@ -7,12 +7,13 @@ local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
 
 local Custom = {} do
-    -- Tema hitam & putih (clean + modern)
-    Custom.ColorRGB = Color3.fromRGB(255, 255, 255)      -- Putih utama (primary)
-    Custom.AccentColor = Color3.fromRGB(200, 200, 200)   -- Abu terang (accent)
-    Custom.DarkBlue = Color3.fromRGB(90, 90, 90)         -- Abu gelap pengganti biru
-    Custom.BackgroundDark = Color3.fromRGB(15, 15, 15)   -- Hitam pekat background
-    Custom.FrameDark = Color3.fromRGB(30, 30, 30)        -- Abu gelap untuk frame
+    -- Tema keoren (orange modern gradient)
+    Custom.ColorRGB = Color3.fromRGB(255, 140, 0)      -- DarkOrange (primary)
+    Custom.AccentColor = Color3.fromRGB(255, 165, 60)  -- Soft Orange accent
+    Custom.DarkBlue = Color3.fromRGB(180, 90, 0)       -- Orange coklat gelap
+    Custom.BackgroundDark = Color3.fromRGB(35, 20, 5)  -- Dark warm background
+    Custom.FrameDark = Color3.fromRGB(60, 30, 10)      -- Frame oranye gelap
+
 
 function Custom:Create(Name, Properties, Parent)
     local _instance = Instance.new(Name)
