@@ -994,7 +994,7 @@ local ConnectButton = Custom:Create("TextButton", {
       BackgroundTransparency = 0.999,
       BorderColor3 = Color3.fromRGB(0, 0, 0),
       BorderSizePixel = 0,
-      Position = UDim2.new(0, 8, 0, 8),
+      Position = UDim2.new(0, 8, 0, 4),
       Size = UDim2.new(0, 18, 0, 18),
       Name = "FeatureImg",
     }, Tab)
@@ -1007,8 +1007,8 @@ local ConnectButton = Custom:Create("TextButton", {
         BackgroundColor3 = Custom.ColorRGB,
         BorderColor3 = Color3.fromRGB(0, 0, 0),
         BorderSizePixel = 0,
-        Position = UDim2.new(0, 3, 0, 12),
-        Size = UDim2.new(0, 2, 0, 16),
+        Position = UDim2.new(0, 3, 0, 6),
+        Size = UDim2.new(0, 1, 0, 12),
         Name = "ChooseFrame",
       }, Tab)
   
@@ -1060,7 +1060,7 @@ local ConnectButton = Custom:Create("TextButton", {
   
         local _TabT = TweenService:Create(Tab, TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.3})
         local _TabStroke = TweenService:Create(Tab:FindFirstChild("UIStroke"), TweenInfo.new(0.6, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Transparency = 0.2})
-        local _FTween = TweenService:Create(FrameChoose, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Position = UDim2.new(0, 3, 0, 12 + (37 * Tab.LayoutOrder))})
+        local _FTween = TweenService:Create(FrameChoose, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Position = UDim2.new(0, 3, 0, 6 + (37 * Tab.LayoutOrder))})
   
         _TabT:Play()
         _TabStroke:Play()
