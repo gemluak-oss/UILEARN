@@ -658,7 +658,7 @@ local TextLabel1 = Custom:Create("TextLabel", {
     BorderColor3 = Color3.fromRGB(0, 0, 0),
     BorderSizePixel = 0,
     Size = UDim2.new(1, 0, 0, 30),
-    Position = UDim2.new(0.1, 0, 0, 0), -- geser 10% ke kanan
+	Position = UDim2.new(0, 50, 0, 0) -- geser 50px ke kanan
     Name = "NameTab"
   }, Layers)
 
