@@ -16,7 +16,7 @@ local RunService = game:GetService("RunService")
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
-local ClipboardService = game:GetService("ClipboardService")
+
 
 -- ============================================================
 -- THEME SYSTEM
